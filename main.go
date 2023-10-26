@@ -3,7 +3,6 @@ package main
 import (
 	"PEi/CertificateBypass"
 	"PEi/Tools"
-	"PEi/UPXBypass"
 	"encoding/hex"
 	"fmt"
 	"os"
@@ -29,7 +28,7 @@ func Execute() {
 		Name:      "PEi",
 		Usage:     "进行PE文件的操作",
 		UsageText: "[No Usage]",
-		Version:   "0.1.0",
+		Version:   "0.1.1",
 		Compiled:  time.Now(),
 		Authors: []*cli.Author{
 			{
@@ -57,22 +56,6 @@ func Execute() {
 						return err
 					}
 					CertificateBypass.Run(filename, outname, shellcode, bytes)
-					return nil
-				},
-			},
-			{
-				Name:    "UPXBypass",
-				Aliases: []string{"u"},
-				Usage:   "UPX特征删除",
-				Flags: []cli.Flag{
-					&cli.StringFlag{Name: "filename", Aliases: []string{"f"}, Destination: &filename, Value: "", Usage: "输入文件"},
-					&cli.StringFlag{Name: "outname", Aliases: []string{"o"}, Destination: &outname, Value: "", Usage: "输出文件"},
-				},
-				Action: func(c *cli.Context) error {
-					if filename == "" || outname == "" {
-						return fmt.Errorf("参数输入不正确")
-					}
-					UPXBypass.Run(filename, outname)
 					return nil
 				},
 			},

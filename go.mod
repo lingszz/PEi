@@ -1,8 +1,8 @@
 module PEi
 
-go 1.20
+go 1.21.3
 
-require github.com/urfave/cli/v2 v2.25.1
+require github.com/urfave/cli/v2 v2.25.7
 
 require (
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect

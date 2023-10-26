@@ -22,7 +22,7 @@ func Invert(NeedCode []byte) []byte {
 func ShellcodePretreatment(codeName string, outName string, xorCode byte) {
 	ShellBytes, err := os.ReadFile(codeName)
 	if err != nil {
-		log.Panicf("读取文件 %s 异常 %s", codeName, err)
+		log.Panicf("Read File %s Err %s", codeName, err)
 	}
 	ShellBytes = Invert(ShellBytes)
 	ShellBytes = Xor(ShellBytes, xorCode)
